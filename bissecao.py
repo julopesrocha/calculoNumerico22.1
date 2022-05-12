@@ -7,14 +7,14 @@ def func(x):
     return y
 
 def bissec(a, b, error):
-    
+    iteracoes = 0
     err = math.fabs(b-a)/2
 
     # Teorema de Bolzano(verif se há uma raiz no intervalo)]
     if func(a)*func(b) < 0:
         
         while(err > error):
-            
+            iteracoes +=1
             medio = (a+b)/2
 
             if func(medio) == 0:
@@ -27,6 +27,7 @@ def bissec(a, b, error):
                     a = medio 
         if err <= error:
             print(f'A raiz aproximada da função f será {medio}. Com {err}<={error}')
+        print(f'Número de iteraçoẽs: {iteracoes}')
         print(f'A raiz aproximada da função f será {medio}. Com erro: {err} >= {error}')
     else:
         print("Não há raiz nesse intervalo") 
